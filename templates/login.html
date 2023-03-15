@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Авторизация</title>
+        <link rel="stylesheet" type="text/css" href="/static/CSS/style.css" />
+    </head>
+
+    <body>
+        <form class="login_form" action="{{ url_for('index') }}" method="POST">
+            <div class="login">
+                {% if bad_data %}
+                    <p>Неверно введен логин или пароль</p>
+                {% endif %}
+                <label for="Login"><b>Логин</b></label>
+                <input type="text" placeholder="" name="Login" required>
+
+                <label for="Password"><b>Пароль</b></label>
+                <input type="password" placeholder="" name="Password" required>
+
+                <button type="submit">Войти</button>
+                <div class="login">
+                <span class="reg"><a href="{{ url_for('registration')}}">Регистрация</a></span>
+            </div>
+        </form>
+    </body>
+</html>

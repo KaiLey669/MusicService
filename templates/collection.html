@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Музыкальный сервис</title>
+        <link rel="stylesheet" type="text/css" href="/static/CSS/style.css" />
+        {% import "macros.html" as macros %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script defer type="text/javascript" src="{{ url_for('static', filename='./scripts/rating.js') }}"></script>
+    </head>
+
+
+    <body>
+        <div class="navigation">
+            <ul>
+                <li><a href="{{ url_for('index')}}">Главная</a></li>
+                {% set user = session.get('user') %}
+                {% if user != 0 %}
+                    <li class="active"><a href="">Коллекция</a></li>
+                    <li class="split"><a href="{{ url_for('index') }}?exit=True">Выйти</a></li>
+                {% else %}
+                    <li class="split"><a href="{{ url_for('login') }}">Войти</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="collection_left">
+            <ul>
+                {% if flag == "music" %}
+                    <li class="active"><a href="">Мои треки</a></li>
+                    <li><a href="{{ url_for('collection') }}?flag=album">Мои альбомы</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('collection') }}?flag=music">Мои треки</a></li>
+                    <li class="active"><a href="">Мои альбомы</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+        <div class="collection_content">
+            {% if flag == "music" %}
+                {% set n = len(songs)%}
+                {% if n == 0 %}
+                    <p class="no_items">Вы не добавили еще ни один трек</p>
+                {% else %}
+                    {% for i in range(n)%}
+                        {{macros.song_card(songs[i][0], 
+                            songs[i][1], songs[i][2], 
+                            str(songs[i][3]) + '.jpg', 
+                            user_songs, 
+                            songs_rating[songs[i][2]],
+                            user_songs_rating) }}
+                    {% endfor %}
+                {% endif %}
+            {% else %}
+                {% set n = len(albums) %}
+                {% if n == 0 %}
+                    <p class="no_items">Вы не добавили еще ни один альбом</p>
+                {% else %}
+                    {% for i in range(n)%}
+                        {{macros.album_card(albums[i][0], 
+                            albums[i][1], 
+                            albums[i][2], 
+                            str, 
+                            user_albums, 
+                            albums_rating[albums[i][2]],
+                            user_albums_rating) }}
+                    {% endfor %}
+                {% endif %}
+            {% endif %}
+        </div>
+
+
+        <div id="openModal" class="modal">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h3 class="modal-title"></h3>
+                        <a href="#close" title="Close" class="close">×</a>
+                    </div>
+                    <div class="modal-body">    
+
+                        <form>
+                            <input type="hidden" name="item_id" id="item_id">
+
+                            <div class="rating-area">
+                                <input type="radio" id="star-5" name="rating" value="5">
+                                <label for="star-5" title="Оценка «5»"></label>	
+                                <input type="radio" id="star-4" name="rating" value="4">
+                                <label for="star-4" title="Оценка «4»"></label>    
+                                <input type="radio" id="star-3" name="rating" value="3">
+                                <label for="star-3" title="Оценка «3»"></label>  
+                                <input type="radio" id="star-2" name="rating" value="2">
+                                <label for="star-2" title="Оценка «2»"></label>    
+                                <input type="radio" id="star-1" name="rating" value="1">
+                                <label for="star-1" title="Оценка «1»"></label>
+                            </div>
+
+                            <a href="#close" id="fake_submit">Отправить</a>
+                            <button id="modal_submit_btn" type="submit" close="close_btn">Отправить</button>
+                        </form>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </body>
+
+</html>

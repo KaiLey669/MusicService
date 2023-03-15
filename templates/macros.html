@@ -1,0 +1,163 @@
+{% macro song_card(name, performer, id, album, user_songs, global_rating, user_rating) %}
+    {% set path = './static/images/albums/' + album %}
+    <div class="item song_item">
+        <div class="card">
+            <img src="{{path}}">
+            <div class="overlay"></div>
+            <input class="play_btn" type="image" src="./static/images/play.png">
+
+            <form method="POST">
+                {% if id not in user_songs %}
+                    <button class="like_btn" name="like_song" value="{{id}}"><img src="./static/images/like.png"></button>
+                {% else %}
+                    <button class="like_btn" name="delete_song" value="{{id}}"><img src="./static/images/delete.png"></button>
+                {% endif %}
+            </form>
+
+            <input type="hidden" name="song_name" value="{{name}}">
+            <input type="hidden" name="perf_name" value="{{performer}}">
+            <a href="#openModal" id="{{id}}" class="rate_btn_song"><button name="rate_song" class="rate_btn" value="{{id}}"><img src="./static/images/rate.png"></button></a>
+
+        </div>
+        <p>{{performer}} - {{name}}</p>
+
+        <div class="rating_block">
+            <span class="common_rating">★ {{global_rating}}</span>
+            {% if session['user'] != 0 %}
+                <span class="user_rating">☺ {{user_rating[id]}}</span>
+            {% endif %}
+        </div>
+    </div>
+
+{% endmacro %}
+
+
+{% macro album_card(name, performer, id, str, user_albums, global_rating, user_rating) %}
+    {% set path = './static/images/albums/' + str(id) + '.jpg' %}
+    <div class="item album_item">
+        <div class="card">
+            <img src="{{path}}">
+            <div class="overlay"></div>
+            <input class="play_btn" type="image" src="./static/images/play.png">
+            
+            <form method="POST">
+                {% if id not in user_albums %}
+                    <button class="like_btn" name="like_album" value="{{id}}"><img src="./static/images/like.png"></button>
+                {% else %}
+                    <button class="like_btn" name="delete_album" value="{{id}}"><img src="./static/images/delete.png"></button>
+                {% endif %}
+            </form>
+
+
+            <input type="hidden" name="album_name" value="{{name}}">
+            <input type="hidden" name="perf_name" value="{{performer}}">
+            <a href="#openModal" id="{{id}}" class="rate_btn_album"><button name="rate_album" class="rate_btn" value="{{id}}"><img src="./static/images/rate.png"></button></a>        
+            
+        </div>
+
+        <p>{{performer}} - {{name}}</p>
+
+        <div class="rating_block">
+            <span class="common_rating">★ {{global_rating}}</span>
+            {% if session['user'] != 0 %}
+                <span class="user_rating">☺ {{user_rating[id]}}</span>
+            {% endif %}
+        </div>
+    </div>
+
+{% endmacro %}
+
+
+{% macro performer_card(name, id, str) %}
+    {% set path = './static/images/performers/' + str(id) + '.jpg' %}
+    <div class="item">
+        <div class="card">
+            <img src="{{path}}">
+            <div class="overlay"></div>
+            <input class="play_btn" type="image" src="./static/images/play.png">
+            <form method="POST">
+                <button class="move_btn" name="performer" value="{{id}}"><img src="./static/images/move.png"></button>
+            </form>
+        </div>
+        <p>{{name}}</p>
+    </div>
+{% endmacro %}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+{% macro copy() %}
+    <div class="rate_background">
+        <div class="rate_bar" style="width:35%;"></div>
+    </div>
+
+    <div class="rate_background" onclick="set_rate(arguments[0], this);">
+        <div class="rate_bar" style="width:35%;"></div>
+    </div>
+
+
+
+
+    {% if session['user'] != 0 %}
+                {% for record in user_rating %}
+                    {% if record[0] == id %}
+                        <span class="user_rating">☺ {{record[1]}}</span>
+                    {% endif %}
+                {% endfor %}
+            {% endif %}
+
+
+            <div id="openModal" class="modal">
+                <div class="modal-dialog">
+                  <div class="modal-content">
+                    <div class="modal-header">
+                      <h3 class="modal-title">Название</h3>
+                      <a href="#close" title="Close" class="close"></a>
+                    </div>
+                    <div class="modal-body">    
+                      <p>Содержимое модального окна...</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+
+
+
+            <a class="popup-trigger" data-target="#popup">Открыть попап</a>
+            <div id="popup" class="popup">
+                <div class="popup-text">ЗАЛУП1</div>
+              
+                <span class="popup-btn-close">&times;</span>
+            </div>
+
+
+            <div id="popup" class="popup">
+                <div class="popup-text">ЗАЛУП1
+                </div>
+                <span class="popup-btn-close">&times;</span>
+            </div>
+{% endmacro %}

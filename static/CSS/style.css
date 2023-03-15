@@ -1,0 +1,728 @@
+.navigation {
+    background-color: darkgray;
+    width: 100%;
+}
+
+.navigation li {
+    display: inline-block;
+    vertical-align: top;
+    padding: 10px;
+    color: #6f6d6d;
+    font-size: 22px;
+}
+
+.navigation a {
+    text-decoration: none;
+    color: black;
+}
+
+.navigation li:hover {
+    background-color: #f87777;
+    cursor: pointer;
+    color: #f8f8f8;
+}
+
+.navigation ul {
+    padding: 0px;
+}
+
+.active{
+    background-color: #f87777;
+    color: #f8f8f8;
+}
+
+.navigation a:hover{
+    color: #f8f8f8;
+}
+
+.navigation li.split {
+    float: right;
+}
+
+.left_part {
+    /* background: #40E0D0; */
+    color: white;
+    float: left;
+    width: 20%;
+}
+
+.right_part {
+    /* background: #40E0D0; */
+    /* color: white; */
+    float: right;
+    width: 20%;
+    /* display: inline-block; */
+}
+
+.content {
+    margin: 0 auto;
+    width: 60%;
+    
+    /* background-color: #B0E0E6; */
+}
+
+.parent {
+    background-color: whitesmoke;
+    border-radius: 15px;
+    border: none;
+    margin: 10px;
+    /* display: flex;
+    flex-direction: column;
+    flex: 1 0 100%; */
+}
+
+.conteiner {
+    margin: 0 auto;
+}
+
+.best_items {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start; 
+    /* margin: 10px; */
+    /* background-color: #454cee; */
+}
+
+.item {
+    flex: 0 0 180px;
+    /* height: 250px; */
+    margin: 10px;
+
+    /* border: 1px solid lightgrey; */
+    border-radius: 10px;
+
+    background-color: gainsboro;
+    position: relative;
+}
+
+.item p {
+    text-align: center;
+    margin: 5px 5px 30px 5px;  
+}
+
+.card {
+    margin: 10px;
+    height: 150px;
+    width: 150px;
+    /* border: 2px solid lightgray; */
+    /* border-radius: 10px; */
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 1;
+    /* background: rgba(0, 0, 0, 0.5); */
+    /* transition: background 0.5s ease; */
+}
+
+.card:hover .overlay{
+    /* opacity: 0.5; */
+    background: rgba(255, 255, 255, 0.6);
+}
+
+.card:hover .play_btn{
+    display: block;
+    opacity: 1;
+}
+
+.card:hover .like_btn {
+    display: block;
+    opacity: 1;
+}
+
+.card:hover .rate_btn {
+    display: block;
+    opacity: 1;
+}
+
+.card:hover .move_btn {
+    display: block;
+    opacity: 1;
+}
+
+.text {
+    margin: 10px 0px 10px 50px; 
+    font-size: 40px;
+    /* font: 40px Stem-medium, arial, sans-serif; */
+}
+
+.rating_block {
+    position: absolute;
+    bottom: 0;
+    margin: 0 5px 5px 5px;
+    width: 170px;
+    height: 20px;
+    /* vertical-align: bottom; */
+}
+
+.common_rating {
+    font-size: 15px;
+    float: left;
+    /* margin: 20px 0 5px 5px; */
+    /* position: absolute;
+    bottom: 0; */
+    /* vertical-align: bottom; */
+}
+
+.user_rating {
+    font-size: 15px;
+    float: right;
+    margin: 3px 0 0 0;
+}
+
+/* .user_rating */
+
+.play_btn {
+    position: absolute;
+    margin: auto;
+    top: 0; left: 0; bottom: 0; right: 0;
+    display: none;
+}
+
+.like_btn {
+    position: absolute;
+    margin: auto;
+    top: 100px; left: 0; bottom: 0; right: 55px;
+    display: none;
+    width: 42px;
+    height: 42px;
+    border-radius: 100%;
+    border-width: 1px;
+
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.0); 
+    /* background-color: #6f6d6d; */
+}
+
+.move_btn {
+    position: absolute;
+    margin: auto;
+    top: 100px; left: 0; bottom: 0; right: 0;
+    display: none;
+    width: 42px;
+    height: 42px;
+
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.0);
+}
+
+.rate_btn {
+    position: absolute;
+    margin: auto;
+    top: 95px; left: 45px; bottom: 0; right: 0;
+    display: none;
+
+    width: 30px;
+    height: 30px;
+    border-radius: 100%;
+    border-width: 1px;
+    border: none;
+    cursor: pointer;
+    background: rgba(255, 255, 255, 0.0); 
+}
+
+
+/* search------------------------------------------------------------------------- */
+
+.search {
+    background-color: whitesmoke;
+    border-radius: 15px;
+    border: none;
+    margin: 10px;
+}
+
+.search h1 {
+    margin: 10px 0px 10px 50px;
+}
+
+.nothing_found {
+    margin : 10px;
+    font-size: 20px;
+}
+
+.right_part input {
+    border-radius: 4px;/*Скругляем углы */
+    width: 280px; /*Ширина */
+    padding: 10px ;
+    margin: 0px 0px 0px 10px; /*Размер внешних отступов*/
+    display: inline; /*тип отображения*/
+    border: 1px solid #050c26;/*Цвет, размер и тип границы */
+    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
+    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+    color: #777991;/*Цвет текста в input */
+}
+
+.right_part button{
+    font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
+    border-radius: 8px; /*Закругление */
+    padding: 10px; /*Размер внутренних отступов*/
+    margin: 8px 0 0 5px;/*Размер внешних отступов*/
+    border: none; /*Без границы*/
+    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
+    width: auto; /*Ширина*/
+    display: inline;
+}
+
+.found_items {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+    margin: 10px 0px 10px 40px;
+}
+
+/* search------------------------------------------------------------------------- */
+
+/* performer------------------------------------------------------------------------- */
+
+.performer {
+    background-color: whitesmoke;
+    border-radius: 15px;
+    border: none;
+    margin: 10px;
+    /* display: inline-block; */
+}
+
+.top_header {
+    display: inline-flex;
+}
+
+.pict {
+    width: 250px;
+    height: 250px;
+    margin: 10px 10px 10px 50px; 
+    /* display: inline; */
+}
+
+.header_block {
+    display: inline;
+    margin: 10px 0 0 50px;
+    border-radius: 30px;
+    border: none;
+    background-color: gainsboro;
+    width: auto;
+    height: 70px;
+}
+
+.header {
+    font-size: 32px;
+    margin: 15px;
+    /* display: inline; */
+    /* background-color: #777991; */
+}
+
+.perf_conteiner {
+    display: flex;
+    background: whitesmoke;
+    border-radius: 15px;
+    /* float: left; */
+    margin: 0 0 0 40px;
+    /* width: 1400px; */
+    /* height: auto; */
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+/* performer------------------------------------------------------------------------- */
+
+
+
+/* rating------------------------------------------------------------------------- */
+
+
+
+.modal {
+    position: fixed; 
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: rgba(0,0,0,0.5); 
+    z-index: 1050;
+    opacity: 0; 
+    -webkit-transition: opacity 200ms ease-in; 
+    -moz-transition: opacity 200ms ease-in;
+    transition: opacity 200ms ease-in; 
+    pointer-events: none; 
+    margin: 0;
+    padding: 0;
+}
+
+.modal:target {
+    opacity: 1; 
+	  pointer-events: auto; 
+    overflow-y: auto; 
+}
+
+.modal-dialog {
+    position: relative;
+    width: auto;
+    margin: 10px;
+}
+
+@media (min-width: 576px) {
+  .modal-dialog {
+      max-width: 500px;
+      margin: 30px auto; 
+  }
+}
+
+.modal-content {
+    position: relative;
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    background-color: #fff;
+    -webkit-background-clip: padding-box;
+    background-clip: padding-box;
+    border: 1px solid rgba(0,0,0,.2);
+    border-radius: .3rem;
+    outline: 0;
+}
+
+@media (min-width: 768px) {
+  .modal-content {
+      -webkit-box-shadow: 0 5px 15px rgba(0,0,0,.5);
+      box-shadow: 0 5px 15px rgba(0,0,0,.5);
+  }
+}
+
+.modal-header {
+    display: -webkit-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -webkit-align-items: center;
+    -ms-flex-align: center;
+    align-items: center;
+    -webkit-box-pack: justify;
+    -webkit-justify-content: space-between;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    padding: 15px;
+    border-bottom: 1px solid #eceeef;
+}
+
+.modal-title {
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1.5;
+    font-size: 1.25rem;
+    font-weight: 500;
+}
+
+#modal_submit_btn {
+    display: none;
+}
+
+#fake_submit {
+    float: right;
+    font: 20px Arial;
+    text-decoration: none;
+    background-color: gainsboro;
+    color: black;
+    border-radius: 10px;
+    padding: 5px 8px 5px 8px;
+    margin: 30px 0 0 0;
+}
+
+.close {
+    float: right;
+    font-family: sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: .5;
+    text-decoration: none;
+}
+/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+.close:focus, .close:hover {
+    color: #000;
+    text-decoration: none;
+    cursor: pointer;
+    opacity: .75;
+}
+
+.modal-body {
+  position: relative;
+    -webkit-box-flex: 1;
+    -webkit-flex: 1 1 auto;
+    -ms-flex: 1 1 auto;
+    flex: 1 1 auto;
+    padding: 15px;
+    overflow: auto;
+}
+
+
+
+.rate_background {
+    position: relative;
+    width: 160px;
+    height: 32px;
+    background:url("/static/images/rate.png") repeat-x;
+}
+ 
+/* внутренний контейнер - полоса рейтинга с золотыми звездочками */
+.rate_bar {
+    position: absolute;
+    top: 0px;
+    left: 0px; 
+    height: 32px; 
+    background:url("/static/images/like.png") repeat-x;
+}
+
+
+/* rating------------------------------------------------------------------------- */
+
+
+.collection_left {
+    /* display: inline; */
+    background: whitesmoke;
+    float: left;
+    width: 20%;
+    height: 100vh;
+}
+
+.collection_left ul {
+    padding: 0px;
+}
+
+.collection_left li {
+    vertical-align: top;
+    padding: 10px;
+    font-size: 22px;
+}
+
+.collection_left li:hover {
+    background-color: #f87777;
+    cursor: pointer;
+    color: #f8f8f8;
+}
+
+.collection_left a {
+    text-decoration: none;
+    color: black;
+}
+
+.collection_left a:hover {
+    color: #f8f8f8;
+}
+
+/* .collection_parent {
+    display: inline;
+} */
+
+.collection_content {
+    display: flex;
+    background: whitesmoke;
+    border-radius: 15px;
+    float: left;
+    margin: 0 0 0 10px;
+    width: 1400px;
+    height: auto;
+
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+.collection_content ul {
+    list-style: none;
+    padding: 0;
+    border-bottom: #050c26;
+    border-bottom: 2px;
+}
+
+.collection_content li {
+    text-decoration: none;
+    outline: none;
+    display: block;
+
+    padding: 6px;
+    margin: 10px;
+
+    border-bottom: #050c26;
+    border-bottom: 2px; 
+
+    letter-spacing: 1px;
+    font-weight: 300;
+    color: #444;
+    transition: .3s linear;
+}
+
+.no_items {
+    margin : 10px;
+    font-size: 20px;
+}
+
+
+
+
+.login_form {
+    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+    border: 1px solid black;/*Цвет, размер и тип границы */
+    border-radius: 20px;/*Скругляем углы */
+    color: #777991;/*Цвет label */
+    width: 25%; /*Ширина формы */
+    margin-right: auto; /*Положение формы */
+    margin-left: auto; /*Положение формы */
+    text-align: center; /*Центровка текста*/
+}
+
+.login input[type=text], input[type=password] {
+    text-align: center; /*Центровка текста*/
+    border-radius: 4px;/*Скругляем углы */
+    width: auto; /*Ширина */
+    padding: 15px 20px; /*Размер внутренних отступов*/
+    margin: 10px 0; /*Размер внешних отступов*/
+    margin-right: auto; /*Размер внешних отступов справа*/
+    margin-left: auto; /*Размер внешних отступов слева*/
+    display: block; /*тип отображения*/
+    border: 1px solid #050c26;/*Цвет, размер и тип границы */
+    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
+    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+    color: #777991;/*Цвет текста в input */
+}
+
+.login button {
+    font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
+    background-color: #454cee; /*Выбираем цвет фона */
+    border-radius: 8px; /*Закругление */
+    color: white; /*Выбираем цвет текста*/
+    padding: 16px 20px; /*Размер внутренних отступов*/
+    margin: 8px 0;/*Размер внешних отступов*/
+    border: none; /*Без границы*/
+    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
+    width: auto; /*Ширина*/
+}
+
+.login button:hover { 
+    opacity: 0.9; /*Изменение яркости кнопки при наведении*/
+}
+
+.login {
+    padding: 20px; /*Размер внутренних отступов контейнера*/
+}
+
+.login p {
+    color: red;
+}
+
+
+.reg_form {
+    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+   border: 1px solid black;/*Цвет, размер и тип границы */
+   border-radius: 20px;/*Скругляем углы */
+   color: #777991;/*Цвет label */
+   width: 25%; /*Ширина формы */
+   margin-right: auto; /*Положение формы */
+   margin-left: auto; /*Положение формы */
+   text-align: center; /*Центровка текста*/
+}
+
+.reg input[type=text], input[type=password] {
+   text-align: center; /*Центровка текста*/
+   border-radius: 4px;/*Скругляем углы */
+   width: auto; /*Ширина */
+   padding: 15px 20px; /*Размер внутренних отступов*/
+   margin: 10px 0; /*Размер внешних отступов*/
+   margin-right: auto; /*Размер внешних отступов справа*/
+   margin-left: auto; /*Размер внешних отступов слева*/
+   display: block; /*тип отображения*/
+   border: 1px solid #050c26;/*Цвет, размер и тип границы */
+   box-sizing: border-box; /*Размер объекта по отношению к родительскому */
+   font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+   color: #777991;/*Цвет текста в input */  
+}
+
+.reg button {
+   font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
+   background-color: #454cee; /*Выбираем цвет фона */
+   border-radius: 8px; /*Закругление */
+   color: white; /*Выбираем цвет текста*/
+   padding: 16px 20px; /*Размер внутренних отступов*/
+   margin: 8px 0;/*Размер внешних отступов*/
+   border: none; /*Без границы*/
+   cursor: pointer; /*Изменение курсора при наведении на кнопку*/
+   width: auto; /*Ширина*/
+}
+
+.reg button:hover { 
+   opacity: 0.9; /*Изменение яркости кнопки при наведении*/
+}
+
+.reg {
+   padding: 20px; /*Размер внутренних отступов контейнера*/
+}
+
+
+
+.rating-area {
+	overflow: hidden;
+	width: 265px;
+	margin: 0 auto;
+}
+
+.rating-area:not(:checked) > input {
+	display: none;
+}
+
+.rating-area:not(:checked) > label {
+	float: right;
+	width: 42px;
+	padding: 0;
+	cursor: pointer;
+	font-size: 32px;
+	line-height: 32px;
+	color: lightgrey;
+	text-shadow: 1px 1px #bbb;
+}
+
+.rating-area:not(:checked) > label:before {
+	content: '★';
+}
+
+.rating-area > input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px #c60;
+}
+
+.rating-area:not(:checked) > label:hover,
+.rating-area:not(:checked) > label:hover ~ label {
+	color: gold;
+}
+
+.rating-area > input:checked + label:hover,
+.rating-area > input:checked + label:hover ~ label,
+.rating-area > input:checked ~ label:hover,
+.rating-area > input:checked ~ label:hover ~ label,
+.rating-area > label:hover ~ input:checked ~ label {
+	color: gold;
+	text-shadow: 1px 1px goldenrod;
+}
+
+.rate-area > label:active {
+	position: relative;
+}
