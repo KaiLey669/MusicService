@@ -21,6 +21,16 @@ def get_user_id(conn, login):
     return execute_read_query(conn, query)
 
 
+def get_user_role(conn, user_id):
+    query = f"""
+        SELECT user_role
+        FROM user
+        WHERE user_id = {user_id}
+    """
+
+    return execute_read_query(conn, query)
+
+
 def get_best_songs(conn):
     query = """
         SELECT song_name, performer_name, song_id, album_id, AVG(song_rating) as rating

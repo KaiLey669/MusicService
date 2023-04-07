@@ -19,7 +19,8 @@ from models.login_model import get_password, \
                                get_all_albums, \
                                get_rate_albums, \
                                get_user_rate_songs, \
-                               get_user_rate_albums
+                               get_user_rate_albums, \
+                               get_user_role
 
 
 @app.route('/login', methods=['GET', 'POST'])
@@ -43,6 +44,7 @@ def login():
 
         user_id = get_user_id(conn, Login)
         session['user'] = user_id[0][0]
+        user_role = get_user_role(conn, user_id)
 
         best_songs = get_best_songs(conn)
         best_albums = get_best_albums(conn)
@@ -94,6 +96,7 @@ def login():
                                 albums_rating=global_rating_albums_dict,
                                 user_songs_rating=user_song_rating,
                                 user_albums_rating=user_albums_rating,
+                                user_role = user_role[0][0],
                                 len=len,
                                 str=str)
 

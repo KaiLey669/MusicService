@@ -34,7 +34,8 @@ from models.index_model import get_best_songs, \
                                 add_rating_to_album, \
                                 get_password, \
                                 get_user_id, \
-                                insert_user
+                                insert_user, \
+                                get_user_role
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -64,6 +65,8 @@ def index():
     global_rating_songs_dict = create_rating_songs_dict(conn)
     global_rating_albums_dict = create_rating_albums_dict(conn)
 
+    user_role = None
+
     # Пофиксить баг со входом после логина
     # Пофиксить регистрацию
 
@@ -84,6 +87,7 @@ def index():
 
         user_id = get_user_id(conn, Login)
         session['user'] = user_id[0][0]
+        user_role = get_user_role(conn, session['user'])[0][0]
 
     elif request.values.get('Login_reg'):
         Login = request.form.get('Login_reg')
@@ -240,6 +244,7 @@ def index():
         albums_rating=global_rating_albums_dict,
         user_songs_rating=user_song_rating,
         user_albums_rating=user_albums_rating,
+        user_role=user_role,
         len=len,
         str=str
     )

@@ -346,6 +346,17 @@ def get_user_id(conn, login):
 
     return execute_read_query(conn, query)
 
+
+def get_user_role(conn, user_id):
+    query = f"""
+        SELECT user_role
+        FROM user
+        WHERE user_id = {user_id}
+    """
+
+    return execute_read_query(conn, query)
+
+
 def insert_user(conn, login, pwd):
     query = f"""
         INSERT INTO user (user_name, user_login, user_password)
