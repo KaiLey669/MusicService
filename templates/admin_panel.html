@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Музыкальный сервис</title>
+        <link rel="stylesheet" type="text/css" href="/static/CSS/style.css" />
+        {% import "macros.html" as macros %}
+    </head>
+
+
+    <body>
+        <div class="navigation">
+            <ul>
+                <li><a href="{{ url_for('index') }}">Главная</a></li>
+                {% set user = session.get('user') %}
+                {% set user_role = session.get('user_role') %}
+
+                {% if user != 0 %}
+                    <li><a href="{{ url_for('collection') }}">Коллекция</a></li>
+                    <li class="split"><a href="{{ url_for('index') }}?exit=True">Выйти</a></li>
+                {% else %}
+                    <li class="split"><a href="{{ url_for('login') }}">Войти</a></li>
+                {% endif %}
+
+                {% if user_role == 1 %}
+                    <li class="active"><a href="{{ url_for('admin_panel') }}">Панель администрирования</a></li>
+                {% endif %}
+            </ul>
+        </div>
+        
+
+        <div class="collection_left">
+            <ul>
+                {% if flag == "music" %}
+                    <li class="active"><a href="">Добавить трек</a></li>
+                    <li><a href="{{ url_for('admin_panel') }}?flag=album">Добавить альбом</a></li>
+                {% else %}
+                    <li><a href="{{ url_for('admin_panel') }}?flag=music">Добавить трек</a></li>
+                    <li class="active"><a href="">Добавить альбом</a></li>
+                {% endif %}
+            </ul>
+        </div>
+
+
+        <div class="admin_content">
+            {% if flag == "music" %}
+                <input type="text" placeholder="Введите трек, альбом или исполнителя" name="Search" required>
+                <input type="text" placeholder="Введите трек, альбом или исполнителя" name="Search" required>
+            {% else %}
+
+            {% endif %}
+        </div>
+
+
+    </body>
+</html>

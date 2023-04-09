@@ -578,6 +578,42 @@
 }
 
 
+/* admin------------------------------------------------------------------------- */
+
+.admin_content {
+    background: whitesmoke;
+    border-radius: 15px;
+    float: left;
+    margin: 0 0 0 10px;
+    /* width: 1400px; */
+    height: auto;
+}
+
+.admin_content input {
+    border-radius: 4px;/*Скругляем углы */
+    width: 280px; /*Ширина */
+    padding: 10px ;
+    margin: 0px 0px 0px 10px; /*Размер внешних отступов*/
+    display: inline; /*тип отображения*/
+    border: 1px solid #050c26;/*Цвет, размер и тип границы */
+    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
+    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+    color: #777991;/*Цвет текста в input */
+}
+
+.admin_content button{
+    font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
+    border-radius: 8px; /*Закругление */
+    padding: 10px; /*Размер внутренних отступов*/
+    margin: 8px 0 0 5px;/*Размер внешних отступов*/
+    border: none; /*Без границы*/
+    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
+    width: auto; /*Ширина*/
+    display: inline;
+}
+
+/* admin------------------------------------------------------------------------- */
+
 
 
 .login_form {

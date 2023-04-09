@@ -10,3 +10,4 @@ import controllers.index
 import controllers.login
 import controllers.registration
 import controllers.collection
+import controllers.admin_panel

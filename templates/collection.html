@@ -14,11 +14,17 @@
             <ul>
                 <li><a href="{{ url_for('index')}}">Главная</a></li>
                 {% set user = session.get('user') %}
+                {% set user_role = session.get('user_role') %}
+
                 {% if user != 0 %}
                     <li class="active"><a href="">Коллекция</a></li>
                     <li class="split"><a href="{{ url_for('index') }}?exit=True">Выйти</a></li>
                 {% else %}
                     <li class="split"><a href="{{ url_for('login') }}">Войти</a></li>
+                {% endif %}
+
+                {% if user_role == 1 %}
+                    <li><a href="{{ url_for('admin_panel') }}">Панель администрирования</a></li>
                 {% endif %}
             </ul>
         </div>

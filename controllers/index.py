@@ -65,13 +65,14 @@ def index():
     global_rating_songs_dict = create_rating_songs_dict(conn)
     global_rating_albums_dict = create_rating_albums_dict(conn)
 
-    user_role = None
+    # user_role = None
 
     # Пофиксить баг со входом после логина
     # Пофиксить регистрацию
 
     if request.values.get('exit'):
         session['user'] = 0
+        session['user_role'] = 0
 
     if request.values.get('Login'):
         Login = request.form.get('Login')
@@ -87,7 +88,9 @@ def index():
 
         user_id = get_user_id(conn, Login)
         session['user'] = user_id[0][0]
-        user_role = get_user_role(conn, session['user'])[0][0]
+
+        user_role = get_user_role(conn, session['user'])
+        session['user_role'] = user_role[0][0]
 
     elif request.values.get('Login_reg'):
         Login = request.form.get('Login_reg')
@@ -244,7 +247,6 @@ def index():
         albums_rating=global_rating_albums_dict,
         user_songs_rating=user_song_rating,
         user_albums_rating=user_albums_rating,
-        user_role=user_role,
         len=len,
         str=str
     )
