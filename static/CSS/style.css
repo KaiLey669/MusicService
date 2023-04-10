@@ -584,16 +584,19 @@
     background: whitesmoke;
     border-radius: 15px;
     float: left;
-    margin: 0 0 0 10px;
-    /* width: 1400px; */
+    margin: 0 10px 10px 10px;
+    width: auto;
     height: auto;
+
+    display: flex;
+    flex-direction: column;
 }
 
-.admin_content input {
+.admin_content input, select {
     border-radius: 4px;/*Скругляем углы */
     width: 280px; /*Ширина */
     padding: 10px ;
-    margin: 0px 0px 0px 10px; /*Размер внешних отступов*/
+    margin: 5px 10px 5px 10px; /*Размер внешних отступов*/
     display: inline; /*тип отображения*/
     border: 1px solid #050c26;/*Цвет, размер и тип границы */
     box-sizing: border-box; /*Размер объекта по отношению к родительскому */

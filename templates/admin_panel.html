@@ -33,7 +33,7 @@
                 {% if flag == "music" %}
                     <li class="active"><a href="">Добавить трек</a></li>
                     <li><a href="{{ url_for('admin_panel') }}?flag=album">Добавить альбом</a></li>
-                {% else %}
+                {% elif flag == "album" %}
                     <li><a href="{{ url_for('admin_panel') }}?flag=music">Добавить трек</a></li>
                     <li class="active"><a href="">Добавить альбом</a></li>
                 {% endif %}
@@ -41,14 +41,32 @@
         </div>
 
 
-        <div class="admin_content">
-            {% if flag == "music" %}
-                <input type="text" placeholder="Введите трек, альбом или исполнителя" name="Search" required>
-                <input type="text" placeholder="Введите трек, альбом или исполнителя" name="Search" required>
-            {% else %}
+        {% if flag == "music"%}
+            <div class="admin_content">
+                <input type="text" placeholder="Название трека" name="song_name" required>
+                <select>
+                    {% for i in range(len(albums_names))%}
+                        <option>{{albums_names[i][0]}}</option>
+                    {% endfor %}
+                </select>
+            </div>
 
-            {% endif %}
-        </div>
+            <!-- <div class="admin_content">
+                <select>
+                    {% for i in range(len(albums_names)) %}
+                        <option data-class="{{albums_names[i][0]}}">{{albums_names[i][0]}}</option>
+                    {% endfor %}
+                </select>
+
+                <select>
+                    {% for i in range(len(albums_names)) %}
+                        <option>{{albums_names[i][0]}}</option>
+                    {% endfor %}
+                </select>
+            </div> -->
+        {% elif flag == "album"%}
+
+        {% endif %}
 
 
     </body>
