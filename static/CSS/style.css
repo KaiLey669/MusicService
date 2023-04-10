@@ -608,7 +608,7 @@
     font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
     border-radius: 8px; /*Закругление */
     padding: 10px; /*Размер внутренних отступов*/
-    margin: 8px 0 0 5px;/*Размер внешних отступов*/
+    margin: 15px 10px 10px 10px;/*Размер внешних отступов*/
     border: none; /*Без границы*/
     cursor: pointer; /*Изменение курсора при наведении на кнопку*/
     width: auto; /*Ширина*/

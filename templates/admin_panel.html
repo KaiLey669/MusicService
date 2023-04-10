@@ -31,25 +31,29 @@
         <div class="collection_left">
             <ul>
                 {% if flag == "music" %}
-                    <li class="active"><a href="">Добавить трек</a></li>
-                    <li><a href="{{ url_for('admin_panel') }}?flag=album">Добавить альбом</a></li>
+                    <li class="active"><a href="">Треки</a></li>
+                    <li><a href="{{ url_for('admin_panel') }}?flag=album">Альбомы</a></li>
                 {% elif flag == "album" %}
-                    <li><a href="{{ url_for('admin_panel') }}?flag=music">Добавить трек</a></li>
-                    <li class="active"><a href="">Добавить альбом</a></li>
+                    <li><a href="{{ url_for('admin_panel') }}?flag=music">Треки</a></li>
+                    <li class="active"><a href="">Альбомы</a></li>
                 {% endif %}
             </ul>
         </div>
 
 
         {% if flag == "music"%}
-            <div class="admin_content">
-                <input type="text" placeholder="Название трека" name="song_name" required>
-                <select>
-                    {% for i in range(len(albums_names))%}
-                        <option>{{albums_names[i][0]}}</option>
-                    {% endfor %}
-                </select>
-            </div>
+            <form methods="GET">
+                <div class="admin_content">
+                    <input type="text" placeholder="Название трека" name="added_song_name" required>
+                    <select name="new_song_album">
+                        {% for i in range(len(albums_names))%}
+                            <option>{{albums_names[i][0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <button type="submit">Добавить</button>
+                </div>
+            </form>
+
 
             <!-- <div class="admin_content">
                 <select>
@@ -65,7 +69,22 @@
                 </select>
             </div> -->
         {% elif flag == "album"%}
-
+            <form methods="GET">
+                <div class="admin_content">
+                    <input type="text" placeholder="Название альбома" name="added_album_name" required>
+                    <select name="new_album_performer">
+                        {% for i in range(len(performers_names))%}
+                            <option>{{performers_names[i][0]}}</option>
+                        {% endfor %}
+                    </select>
+                    <select name="album_type">
+                        <option value="1">Альбом</option>
+                        <option value="2">EP</option>
+                        <option value="3">Сингл</option>
+                    </select>
+                    <button type="submit">Добавить</button>
+                </div>
+            </form>
         {% endif %}
 
 
