@@ -4,6 +4,8 @@
         <title>Музыкальный сервис</title>
         <link rel="stylesheet" type="text/css" href="/static/CSS/style.css" />
         {% import "macros.html" as macros %}
+        <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        <script defer type="text/javascript" src="{{ url_for('static', filename='./scripts/connected_select.js') }}"></script>
     </head>
 
 
@@ -33,9 +35,15 @@
                 {% if flag == "music" %}
                     <li class="active"><a href="">Треки</a></li>
                     <li><a href="{{ url_for('admin_panel') }}?flag=album">Альбомы</a></li>
+                    <li><a href="{{ url_for('admin_panel') }}?flag=perf">Исполнители</a></li>
                 {% elif flag == "album" %}
                     <li><a href="{{ url_for('admin_panel') }}?flag=music">Треки</a></li>
                     <li class="active"><a href="">Альбомы</a></li>
+                    <li><a href="{{ url_for('admin_panel') }}?flag=perf">Исполнители</a></li>
+                {% elif flag == "perf" %}
+                    <li><a href="{{ url_for('admin_panel') }}?flag=music">Треки</a></li>
+                    <li><a href="{{ url_for('admin_panel') }}?flag=album">Альбомы</a></li>
+                    <li class="active"><a href="">Исполнители</a></li>
                 {% endif %}
             </ul>
         </div>
@@ -54,20 +62,25 @@
                 </div>
             </form>
 
+            <form method="GET">
+                <div class="admin_content">
+                    <select name="delete_performer" onchange="javascript:selectAlbum">
+                        {% for i in range(len(performers_names)) %}
+                            <option>{{performers_names[i][0]}}</option>
+                        {% endfor %}
+                    </select>
 
-            <!-- <div class="admin_content">
-                <select>
-                    {% for i in range(len(albums_names)) %}
-                        <option data-class="{{albums_names[i][0]}}">{{albums_names[i][0]}}</option>
-                    {% endfor %}
-                </select>
+                    <select>
+                        
+                    </select>
 
-                <select>
-                    {% for i in range(len(albums_names)) %}
-                        <option>{{albums_names[i][0]}}</option>
-                    {% endfor %}
-                </select>
-            </div> -->
+                    <select>
+
+                    </select>
+                </div>
+            </form>
+
+
         {% elif flag == "album"%}
             <form methods="GET">
                 <div class="admin_content">
@@ -85,6 +98,14 @@
                     <button type="submit">Добавить</button>
                 </div>
             </form>
+
+        {% elif flag == "perf" %}
+            <form methods="GET">
+                <div class="admin_content">
+                    <input type="text" placeholder="Название исполнителя" name="added_perf_name" required>
+                    <button type="submit">Добавить</button>
+                </div>
+            </form>    
         {% endif %}
 
 
