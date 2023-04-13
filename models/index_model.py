@@ -368,6 +368,28 @@ def insert_user(conn, login, pwd):
 # Login------------------------------------------------------------
 
 
+def get_genres_names(conn):
+    query = f"""
+        SELECT * FROM genre
+        ORDER BY genre_name
+    """
+
+    return execute_read_query(conn, query)
+
+
+def get_performers_by_genre(conn, genre_id):
+    query = f"""
+        SELECT performer_name, performer_id
+        FROM performer
+            JOIN genre_performer USING(performer_id)
+            JOIN genre USING(genre_id)
+        WHERE genre_id = {genre_id}
+    """
+
+    return execute_read_query(conn, query)
+
+
+
 def execute_query(connection, query):
     cursor = connection.cursor()
     try:

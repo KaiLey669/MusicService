@@ -263,6 +263,18 @@
     color: #777991;/*Цвет текста в input */
 }
 
+.right_part select {
+    border-radius: 4px;/*Скругляем углы */
+    width: 280px; /*Ширина */
+    padding: 10px ;
+    margin: 0px 0px 0px 10px; /*Размер внешних отступов*/
+    display: inline; /*тип отображения*/
+    border: 1px solid #050c26;/*Цвет, размер и тип границы */
+    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
+    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
+    color: #777991;/*Цвет текста в input */
+}
+
 .right_part button{
     font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
     border-radius: 8px; /*Закругление */

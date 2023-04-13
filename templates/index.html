@@ -37,6 +37,16 @@
                 <input type="text" placeholder="Введите трек, альбом или исполнителя" name="Search" required>
                 <button type="submit">Найти</button>
             </form>
+
+            <form method="GET">
+                <select name="genre_search">
+                    <option disabled selected hidden>Выберите жанр</option>
+                    {% for i in range(len(genres)) %}
+                        <option value="{{genres[i][0]}}">{{genres[i][1]}}</option>
+                    {% endfor %}
+                </select>
+                <button type="submit">Найти</button>
+            </form>
         </div>
 
         <div class="content">
@@ -92,6 +102,24 @@
                             </div>
                         {% endif %}
 
+                    {% endif %}
+                </div>
+            {% endif %}
+
+
+            {% if genres_search %}
+                <div class="search">
+                    {% if len(perf_by_genre) == 0 %}
+                        <p class="nothing_found">Ничего не найдено</p>
+                    {% else %}
+                        <div class="conteiner">
+                            <p class="text">Исполнители</p>
+                            <div class="found_items">
+                                {% for i in range(len(perf_by_genre)) %}
+                                    {{macros.performer_card(perf_by_genre[i][0], perf_by_genre[i][1], str)}}
+                                {% endfor %}
+                            </div>
+                        </div>
                     {% endif %}
                 </div>
             {% endif %}

@@ -35,7 +35,9 @@ from models.index_model import get_best_songs, \
                                 get_password, \
                                 get_user_id, \
                                 insert_user, \
-                                get_user_role
+                                get_user_role, \
+                                get_genres_names, \
+                                get_performers_by_genre
 
 
 @app.route('/', methods=['GET', 'POST'])
@@ -65,6 +67,9 @@ def index():
     global_rating_songs_dict = create_rating_songs_dict(conn)
     global_rating_albums_dict = create_rating_albums_dict(conn)
 
+    genres = get_genres_names(conn)
+    genres_search = False
+    performers_by_genre = ()
     # user_role = None
 
     # Пофиксить баг со входом после логина
@@ -213,6 +218,10 @@ def index():
         find_performers = get_performers(conn, search_str)
         search = True
 
+    elif request.values.get('genre_search'):
+        genres_search = True
+        performers_by_genre = get_performers_by_genre(conn, int(request.values.get('genre_search')))
+
 
     if session.get('user') != 0:
 
@@ -247,6 +256,9 @@ def index():
         albums_rating=global_rating_albums_dict,
         user_songs_rating=user_song_rating,
         user_albums_rating=user_albums_rating,
+        genres=genres,
+        genres_search=genres_search,
+        perf_by_genre=performers_by_genre,
         len=len,
         str=str
     )
