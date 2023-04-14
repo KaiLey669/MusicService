@@ -2,9 +2,10 @@ from sqlite3 import Error
 
 
 # Songs -----------------------------------------------------------
-def get_albums_names(conn):
+def get_albums(conn):
     query = """
-        SELECT album_name FROM album
+        SELECT album_name, album_id 
+        FROM album
         ORDER BY album_name
     """
 
@@ -61,12 +62,13 @@ def delete_song(conn, song_id):
 
     execute_query(conn, query)
 
+
 # Songs -----------------------------------------------------------
 
 # Albums ----------------------------------------------------------
-def get_performers_names(conn):
+def get_performers(conn):
     query = """
-        SELECT performer_name
+        SELECT performer_name, performer_id
         FROM performer
         ORDER BY performer_name
     """

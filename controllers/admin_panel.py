@@ -1,9 +1,9 @@
 from app import app
 from flask import render_template, request, session
 from utils import create_connection
-from models.admin_panel_model import get_albums_names, add_song, \
+from models.admin_panel_model import get_albums, add_song, \
                                      get_album_id, \
-                                     get_performers_names, \
+                                     get_performers, \
                                      add_album, \
                                      get_performer_id, \
                                      get_song_id, \
@@ -16,8 +16,8 @@ def admin_panel():
     conn = create_connection()
 
     list_flag = 'music'
-    albums_names_list = get_albums_names(conn)
-    performers_names_list = get_performers_names(conn)
+    albums_list = get_albums(conn)
+    performers_list = get_performers(conn)
 
 
     if request.values.get('flag'):
@@ -51,11 +51,15 @@ def admin_panel():
 
         add_performer(conn, performer_name)
 
+    
+    if request.values.get('delete_song'):
+        delete_song(conn, request.values.get('delete_song'))
+
 
     html = render_template(
         'admin_panel.html',
-        albums_names=albums_names_list,
-        performers_names=performers_names_list,
+        albums_list=albums_list,
+        performers_list=performers_list,
         flag = list_flag,
         len=len,
         str=str)
