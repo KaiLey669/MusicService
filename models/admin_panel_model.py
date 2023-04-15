@@ -109,6 +109,25 @@ def add_performer(conn, performer_name):
 # Perf ----------------------------------------------------------
 
 
+def get_album_by_perf(conn, perf_id):
+    query = f"""
+        SELECT album_name, album_id
+        FROM album
+        WHERE performer_id = {perf_id}
+    """
+
+    return execute_read_query(conn, query)
+
+
+def get_song_by_album(conn, album_id):
+    query = f"""
+        SELECT song_name, song_id
+        FROM song
+        WHERE album_id = {album_id}
+    """
+
+    return execute_read_query(conn, query)
+
 
 def execute_query(connection, query):
     cursor = connection.cursor()

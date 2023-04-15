@@ -8,7 +8,9 @@ from models.admin_panel_model import get_albums, add_song, \
                                      get_performer_id, \
                                      get_song_id, \
                                      delete_song, \
-                                     add_performer
+                                     add_performer, \
+                                    get_album_by_perf, \
+                                    get_song_by_album
 
 
 @app.route('/admin_panel', methods=['GET', 'POST'])
@@ -65,3 +67,37 @@ def admin_panel():
         str=str)
     
     return html
+
+
+@app.route('/admin_albums', methods=['GET'])
+def admin_albums():
+    perf_id = request.values.get('perf_id')
+
+    if not perf_id:
+        return {}
+
+    conn = create_connection()
+    
+    albums_by_perf = get_album_by_perf(conn, perf_id)
+    return {'albums': [
+        {'album_id': row[1],
+         'album_name': row[0]}
+        for row in albums_by_perf
+    ]}
+
+
+@app.route('/admin_songs', methods=['GET'])
+def admin_songss():
+    album_id = request.values.get('album_id')
+
+    if not album_id:
+        return {}
+
+    conn = create_connection()
+    
+    songs_by_album = get_song_by_album(conn, album_id)
+    return {'songs': [
+        {'song_id': row[1],
+         'song_name': row[0]}
+        for row in songs_by_album
+    ]}
