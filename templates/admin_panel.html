@@ -6,6 +6,7 @@
         {% import "macros.html" as macros %}
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
         <script defer type="text/javascript" src="{{ url_for('static', filename='./scripts/connected_select.js') }}"></script>
+        <script defer type="text/javascript" src="{{ url_for('static', filename='./scripts/connected_select_for_albums.js') }}"></script>
     </head>
 
 
@@ -64,13 +65,13 @@
 
             <form method="GET">
                 <div class="admin_content">
-                    <select name="delete_performer" id="perf_id">
+                    <select name="delete_performer_song" id="perf_id">
                         {% for i in range(len(performers_list)) %}
                             <option value="{{performers_list[i][1]}}">{{performers_list[i][0]}}</option>
                         {% endfor %}
                     </select>
 
-                    <select name="delete_album" id="album_id">
+                    <select name="delete_album_song" id="album_id">
                         
                     </select>
 
@@ -101,6 +102,22 @@
                 </div>
             </form>
 
+            <form method="GET">
+                <div class="admin_content">
+                    <select name="delete_performer">
+                        {% for i in range(len(performers_list)) %}
+                            <option value="{{performers_list[i][1]}}">{{performers_list[i][0]}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <select name="delete_album" id="album2_id">
+                        
+                    </select>
+
+                    <button type="submit">Удалить</button>
+                </div>
+            </form>
+
         {% elif flag == "perf" %}
             <form methods="GET">
                 <div class="admin_content">
@@ -108,6 +125,18 @@
                     <button type="submit">Добавить</button>
                 </div>
             </form>    
+
+            <form method="GET">
+                <div class="admin_content">
+                    <select name="delete_performer">
+                        {% for i in range(len(performers_list)) %}
+                            <option value="{{performers_list[i][1]}}">{{performers_list[i][0]}}</option>
+                        {% endfor %}
+                    </select>
+
+                    <button type="submit">Удалить</button>
+                </div>
+            </form>
         {% endif %}
 
 

@@ -129,6 +129,24 @@ def get_song_by_album(conn, album_id):
     return execute_read_query(conn, query)
 
 
+def delete_album(conn, album_id):
+    query = f"""
+        DELETE FROM album
+        WHERE album_id = {album_id}
+    """
+
+    execute_query(conn, query)
+
+
+def delete_performer(conn, perf_id):
+    query = f"""
+        DELETE FROM performer
+        WHERE performer_id = {perf_id}
+    """
+
+    execute_query(conn, query)
+
+
 def execute_query(connection, query):
     cursor = connection.cursor()
     try:

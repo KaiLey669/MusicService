@@ -9,8 +9,10 @@ from models.admin_panel_model import get_albums, add_song, \
                                      get_song_id, \
                                      delete_song, \
                                      add_performer, \
-                                    get_album_by_perf, \
-                                    get_song_by_album
+                                     get_album_by_perf, \
+                                     get_song_by_album, \
+                                     delete_album, \
+                                     delete_performer
 
 
 @app.route('/admin_panel', methods=['GET', 'POST'])
@@ -32,13 +34,18 @@ def admin_panel():
 
         add_song(conn, song_name, album_id)
 
+    if request.values.get('delete_song'):
+        # performer_id = get_performer_id(conn, request.values.get('delete_performer'))[0][0]
+        # album_id = get_album_id(conn, request.values.get('delete_values'))[0][0]
+        # song_id = get_song_id(conn, request.values.get('delete_song'), album_id, performer_id)[0][0]
+
+        delete_song(conn, request.values.get('delete_song'))
+
+    if request.values.get('delete_album'):
+        delete_album(conn, request.values.get('delete_album'))
+
     if request.values.get('delete_performer'):
-        performer_id = get_performer_id(conn, request.values.get('delete_performer'))[0][0]
-        album_id = get_album_id(conn, request.values.get('delete_values'))[0][0]
-        song_id = get_song_id(conn, request.values.get('delete_song'), album_id, performer_id)[0][0]
-
-        delete_song(conn, song_id)
-
+        delete_performer(conn, request.values.get('delete_performer'))
 
     if request.values.get('added_album_name'):
         album_name = request.values.get('added_album_name')
@@ -54,8 +61,8 @@ def admin_panel():
         add_performer(conn, performer_name)
 
     
-    if request.values.get('delete_song'):
-        delete_song(conn, request.values.get('delete_song'))
+    # if request.values.get('delete_song'):
+    #     delete_song(conn, request.values.get('delete_song'))
 
 
     html = render_template(
@@ -100,4 +107,21 @@ def admin_songss():
         {'song_id': row[1],
          'song_name': row[0]}
         for row in songs_by_album
+    ]}
+
+
+@app.route('/admin_albums2', methods=['GET'])
+def admin_albums2():
+    perf_id = request.values.get('perf_id')
+
+    if not perf_id:
+        return {}
+
+    conn = create_connection()
+    
+    albums_by_perf = get_album_by_perf(conn, perf_id)
+    return {'albums': [
+        {'album_id': row[1],
+         'album_name': row[0]}
+        for row in albums_by_perf
     ]}
