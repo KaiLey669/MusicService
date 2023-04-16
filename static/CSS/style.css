@@ -613,7 +613,7 @@
     border: 1px solid #050c26;/*Цвет, размер и тип границы */
     box-sizing: border-box; /*Размер объекта по отношению к родительскому */
     font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-    color: #777991;/*Цвет текста в input */
+    color: #444;/*Цвет текста в input */
 }
 
 .admin_content button{
@@ -625,6 +625,7 @@
     cursor: pointer; /*Изменение курсора при наведении на кнопку*/
     width: auto; /*Ширина*/
     display: inline;
+    color: #444;
 }
 
 /* admin------------------------------------------------------------------------- */
