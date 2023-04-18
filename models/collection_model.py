@@ -1,4 +1,5 @@
 from sqlite3 import Error
+from utils import execute_query, execute_read_query
 
 
 def get_songs(conn, user_id):
@@ -46,8 +47,6 @@ def delete_user_album(conn, user_id, album_id):
     return execute_query(conn, query)
 
 
-# --------------------------------
-
 def get_all_songs(conn):
     query = """
         SELECT song_id
@@ -87,9 +86,6 @@ def get_rate_albums(conn):
 
     return execute_read_query(conn, query)
 
-# --------------------------------
-
-# --------------------------------
 
 def get_user_rate_songs(conn, user_id):
     query = f"""
@@ -109,7 +105,6 @@ def get_user_rate_albums(conn, user_id):
 
     return execute_read_query(conn, query)
 
-# --------------------------------
 
 # Добавления рейтинга для песни, которая уже в коллекции пользователя
 def update_rating_song(conn, user_id, song_id, rating):
@@ -150,7 +145,6 @@ def add_rating_to_album(conn, user_id, album_id, rating):
 
     execute_query(conn, query)
 
-# -----------------------------------------------------------------------------------
 
 def get_user_song(conn, user_id, song_id):
     query = f"""
@@ -170,25 +164,3 @@ def get_user_album(conn, user_id, album_id):
     """
 
     return execute_read_query(conn, query)
-
-
-
-
-def execute_query(connection, query):
-    cursor = connection.cursor()
-    try:
-        cursor.execute(query)
-        connection.commit()
-    except Error as e:
-        print(f"The error '{e}' occurred")
-
-
-def execute_read_query(connection, query):
-    cursor = connection.cursor()
-    result = None
-    try:
-        cursor.execute(query)
-        result = cursor.fetchall()
-        return result
-    except Error as e:
-        print(f"The error '{e}' occurred in read query")

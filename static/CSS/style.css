@@ -40,25 +40,19 @@
 }
 
 .left_part {
-    /* background: #40E0D0; */
     color: white;
     float: left;
     width: 20%;
 }
 
 .right_part {
-    /* background: #40E0D0; */
-    /* color: white; */
     float: right;
     width: 20%;
-    /* display: inline-block; */
 }
 
 .content {
     margin: 0 auto;
     width: 60%;
-    
-    /* background-color: #B0E0E6; */
 }
 
 .parent {
@@ -66,9 +60,6 @@
     border-radius: 15px;
     border: none;
     margin: 10px;
-    /* display: flex;
-    flex-direction: column;
-    flex: 1 0 100%; */
 }
 
 .conteiner {
@@ -81,18 +72,12 @@
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start; 
-    /* margin: 10px; */
-    /* background-color: #454cee; */
 }
 
 .item {
     flex: 0 0 180px;
-    /* height: 250px; */
     margin: 10px;
-
-    /* border: 1px solid lightgrey; */
     border-radius: 10px;
-
     background-color: gainsboro;
     position: relative;
 }
@@ -106,8 +91,6 @@
     margin: 10px;
     height: 150px;
     width: 150px;
-    /* border: 2px solid lightgray; */
-    /* border-radius: 10px; */
     margin-left: auto;
     margin-right: auto;
     position: relative;
@@ -120,12 +103,9 @@
     width: 100%;
     height: 100%;
     opacity: 1;
-    /* background: rgba(0, 0, 0, 0.5); */
-    /* transition: background 0.5s ease; */
 }
 
 .card:hover .overlay{
-    /* opacity: 0.5; */
     background: rgba(255, 255, 255, 0.6);
 }
 
@@ -152,7 +132,6 @@
 .text {
     margin: 10px 0px 10px 50px; 
     font-size: 40px;
-    /* font: 40px Stem-medium, arial, sans-serif; */
 }
 
 .rating_block {
@@ -161,16 +140,12 @@
     margin: 0 5px 5px 5px;
     width: 170px;
     height: 20px;
-    /* vertical-align: bottom; */
 }
 
 .common_rating {
     font-size: 15px;
     float: left;
-    /* margin: 20px 0 5px 5px; */
-    /* position: absolute;
-    bottom: 0; */
-    /* vertical-align: bottom; */
+    bottom: 0; 
 }
 
 .user_rating {
@@ -178,8 +153,6 @@
     float: right;
     margin: 3px 0 0 0;
 }
-
-/* .user_rating */
 
 .play_btn {
     position: absolute;
@@ -197,11 +170,9 @@
     height: 42px;
     border-radius: 100%;
     border-width: 1px;
-
     border: none;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.0); 
-    /* background-color: #6f6d6d; */
 }
 
 .move_btn {
@@ -211,7 +182,6 @@
     display: none;
     width: 42px;
     height: 42px;
-
     border: none;
     cursor: pointer;
     background: rgba(255, 255, 255, 0.0);
@@ -222,7 +192,6 @@
     margin: auto;
     top: 95px; left: 45px; bottom: 0; right: 0;
     display: none;
-
     width: 30px;
     height: 30px;
     border-radius: 100%;
@@ -252,37 +221,37 @@
 }
 
 .right_part input {
-    border-radius: 4px;/*Скругляем углы */
-    width: 280px; /*Ширина */
+    border-radius: 4px;
+    width: 280px; 
     padding: 10px ;
-    margin: 0px 0px 0px 10px; /*Размер внешних отступов*/
-    display: inline; /*тип отображения*/
-    border: 1px solid #050c26;/*Цвет, размер и тип границы */
-    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-    color: #777991;/*Цвет текста в input */
+    margin: 0px 0px 0px 10px;
+    display: inline;
+    border: 1px solid #050c26;
+    box-sizing: border-box; 
+    font: 14px Stem-Regular,arial, sans-serif;
+    color: #777991;
 }
 
 .right_part select {
-    border-radius: 4px;/*Скругляем углы */
-    width: 280px; /*Ширина */
+    border-radius: 4px;
+    width: 280px; 
     padding: 10px ;
-    margin: 0px 0px 0px 10px; /*Размер внешних отступов*/
-    display: inline; /*тип отображения*/
-    border: 1px solid #050c26;/*Цвет, размер и тип границы */
-    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-    color: #777991;/*Цвет текста в input */
+    margin: 0px 0px 0px 10px; 
+    display: inline; 
+    border: 1px solid #050c26;
+    box-sizing: border-box; 
+    font: 14px Stem-Regular,arial, sans-serif;
+    color: #777991;
 }
 
 .right_part button{
-    font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
-    border-radius: 8px; /*Закругление */
-    padding: 10px; /*Размер внутренних отступов*/
-    margin: 8px 0 0 5px;/*Размер внешних отступов*/
-    border: none; /*Без границы*/
-    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-    width: auto; /*Ширина*/
+    font: 16px Stem-medium, arial, sans-serif; 
+    border-radius: 8px;
+    padding: 10px; 
+    margin: 8px 0 0 5px;
+    border: none; 
+    cursor: pointer;
+    width: auto;
     display: inline;
 }
 
@@ -303,7 +272,6 @@
     border-radius: 15px;
     border: none;
     margin: 10px;
-    /* display: inline-block; */
 }
 
 .top_header {
@@ -314,7 +282,6 @@
     width: 250px;
     height: 250px;
     margin: 10px 10px 10px 50px; 
-    /* display: inline; */
 }
 
 .header_block {
@@ -330,19 +297,13 @@
 .header {
     font-size: 32px;
     margin: 15px;
-    /* display: inline; */
-    /* background-color: #777991; */
 }
 
 .perf_conteiner {
     display: flex;
     background: whitesmoke;
     border-radius: 15px;
-    /* float: left; */
     margin: 0 0 0 40px;
-    /* width: 1400px; */
-    /* height: auto; */
-
     flex-direction: row;
     flex-wrap: wrap;
     align-content: flex-start;
@@ -350,11 +311,7 @@
 
 /* performer------------------------------------------------------------------------- */
 
-
-
 /* rating------------------------------------------------------------------------- */
-
-
 
 .modal {
     position: fixed; 
@@ -469,7 +426,7 @@
     opacity: .5;
     text-decoration: none;
 }
-/* свойства для кнопки "Закрыть" при нахождении её в фокусе или наведении */
+
 .close:focus, .close:hover {
     color: #000;
     text-decoration: none;
@@ -487,8 +444,6 @@
     overflow: auto;
 }
 
-
-
 .rate_background {
     position: relative;
     width: 160px;
@@ -496,7 +451,6 @@
     background:url("/static/images/rate.png") repeat-x;
 }
  
-/* внутренний контейнер - полоса рейтинга с золотыми звездочками */
 .rate_bar {
     position: absolute;
     top: 0px;
@@ -505,12 +459,9 @@
     background:url("/static/images/like.png") repeat-x;
 }
 
-
 /* rating------------------------------------------------------------------------- */
 
-
 .collection_left {
-    /* display: inline; */
     background: whitesmoke;
     float: left;
     width: 20%;
@@ -541,10 +492,6 @@
 .collection_left a:hover {
     color: #f8f8f8;
 }
-
-/* .collection_parent {
-    display: inline;
-} */
 
 .collection_content {
     display: flex;
@@ -589,7 +536,6 @@
     font-size: 20px;
 }
 
-
 /* admin------------------------------------------------------------------------- */
 
 .admin_content {
@@ -605,131 +551,126 @@
 }
 
 .admin_content input, select {
-    border-radius: 4px;/*Скругляем углы */
-    width: 280px; /*Ширина */
+    border-radius: 4px;
+    width: 280px;
     padding: 10px ;
-    margin: 5px 10px 5px 10px; /*Размер внешних отступов*/
-    display: inline; /*тип отображения*/
-    border: 1px solid #050c26;/*Цвет, размер и тип границы */
-    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-    color: #444;/*Цвет текста в input */
+    margin: 5px 10px 5px 10px; 
+    display: inline; 
+    border: 1px solid #050c26;
+    box-sizing: border-box; 
+    font: 14px Stem-Regular,arial, sans-serif;
+    color: #444;
 }
 
 .admin_content button{
-    font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
-    border-radius: 8px; /*Закругление */
-    padding: 10px; /*Размер внутренних отступов*/
-    margin: 15px 10px 10px 10px;/*Размер внешних отступов*/
-    border: none; /*Без границы*/
-    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-    width: auto; /*Ширина*/
+    font: 16px Stem-medium, arial, sans-serif; 
+    border-radius: 8px;
+    padding: 10px; 
+    margin: 15px 10px 10px 10px;
+    border: none; 
+    cursor: pointer; 
+    width: auto; 
     display: inline;
     color: #444;
 }
 
 /* admin------------------------------------------------------------------------- */
 
-
-
 .login_form {
-    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-    border: 1px solid black;/*Цвет, размер и тип границы */
-    border-radius: 20px;/*Скругляем углы */
-    color: #777991;/*Цвет label */
-    width: 25%; /*Ширина формы */
-    margin-right: auto; /*Положение формы */
-    margin-left: auto; /*Положение формы */
-    text-align: center; /*Центровка текста*/
+    font: 14px Stem-Regular,arial, sans-serif;
+    border: 1px solid black;
+    border-radius: 20px;
+    color: #777991;
+    width: 25%; 
+    margin-right: auto;
+    margin-left: auto; 
+    text-align: center; 
 }
 
 .login input[type=text], input[type=password] {
-    text-align: center; /*Центровка текста*/
-    border-radius: 4px;/*Скругляем углы */
-    width: auto; /*Ширина */
-    padding: 15px 20px; /*Размер внутренних отступов*/
-    margin: 10px 0; /*Размер внешних отступов*/
-    margin-right: auto; /*Размер внешних отступов справа*/
-    margin-left: auto; /*Размер внешних отступов слева*/
-    display: block; /*тип отображения*/
-    border: 1px solid #050c26;/*Цвет, размер и тип границы */
-    box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-    color: #777991;/*Цвет текста в input */
+    text-align: center; 
+    border-radius: 4px;
+    width: auto;
+    padding: 15px 20px; 
+    margin: 10px 0; 
+    margin-right: auto; 
+    margin-left: auto; 
+    display: block; 
+    border: 1px solid #050c26;
+    box-sizing: border-box; 
+    font: 14px Stem-Regular,arial, sans-serif;
+    color: #777991;
 }
 
 .login button {
-    font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
-    background-color: #454cee; /*Выбираем цвет фона */
-    border-radius: 8px; /*Закругление */
-    color: white; /*Выбираем цвет текста*/
-    padding: 16px 20px; /*Размер внутренних отступов*/
-    margin: 8px 0;/*Размер внешних отступов*/
-    border: none; /*Без границы*/
-    cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-    width: auto; /*Ширина*/
+    font: 16px Stem-medium, arial, sans-serif; 
+    background-color: #454cee; 
+    border-radius: 8px; 
+    color: white; 
+    padding: 16px 20px; 
+    margin: 8px 0;
+    border: none; 
+    cursor: pointer; 
+    width: auto; 
 }
 
 .login button:hover { 
-    opacity: 0.9; /*Изменение яркости кнопки при наведении*/
+    opacity: 0.9; 
 }
 
 .login {
-    padding: 20px; /*Размер внутренних отступов контейнера*/
+    padding: 20px; 
 }
 
 .login p {
     color: red;
 }
 
-
 .reg_form {
-    font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-   border: 1px solid black;/*Цвет, размер и тип границы */
-   border-radius: 20px;/*Скругляем углы */
-   color: #777991;/*Цвет label */
-   width: 25%; /*Ширина формы */
-   margin-right: auto; /*Положение формы */
-   margin-left: auto; /*Положение формы */
-   text-align: center; /*Центровка текста*/
+    font: 14px Stem-Regular,arial, sans-serif;
+   border: 1px solid black;
+   border-radius: 20px;
+   color: #777991;
+   width: 25%;
+   margin-right: auto; 
+   margin-left: auto; 
+   text-align: center; 
 }
 
 .reg input[type=text], input[type=password] {
-   text-align: center; /*Центровка текста*/
-   border-radius: 4px;/*Скругляем углы */
-   width: auto; /*Ширина */
-   padding: 15px 20px; /*Размер внутренних отступов*/
-   margin: 10px 0; /*Размер внешних отступов*/
-   margin-right: auto; /*Размер внешних отступов справа*/
-   margin-left: auto; /*Размер внешних отступов слева*/
-   display: block; /*тип отображения*/
-   border: 1px solid #050c26;/*Цвет, размер и тип границы */
-   box-sizing: border-box; /*Размер объекта по отношению к родительскому */
-   font: 14px Stem-Regular,arial, sans-serif;/*Выбираем шрифт */
-   color: #777991;/*Цвет текста в input */  
+   text-align: center; 
+   border-radius: 4px;
+   width: auto; 
+   padding: 15px 20px; 
+   margin: 10px 0; 
+   margin-right: auto; 
+   margin-left: auto; 
+   display: block;
+   border: 1px solid #050c26;
+   box-sizing: border-box;
+   font: 14px Stem-Regular,arial, sans-serif;
+   color: #777991; 
 }
 
 .reg button {
-   font: 16px Stem-medium, arial, sans-serif; /*Выбираем шрифт кнопки */
-   background-color: #454cee; /*Выбираем цвет фона */
-   border-radius: 8px; /*Закругление */
-   color: white; /*Выбираем цвет текста*/
-   padding: 16px 20px; /*Размер внутренних отступов*/
-   margin: 8px 0;/*Размер внешних отступов*/
-   border: none; /*Без границы*/
-   cursor: pointer; /*Изменение курсора при наведении на кнопку*/
-   width: auto; /*Ширина*/
+   font: 16px Stem-medium, arial, sans-serif; 
+   background-color: #454cee; 
+   border-radius: 8px; 
+   color: white;
+   padding: 16px 20px; 
+   margin: 8px 0;
+   border: none;
+   cursor: pointer; 
+   width: auto; 
 }
 
 .reg button:hover { 
-   opacity: 0.9; /*Изменение яркости кнопки при наведении*/
+   opacity: 0.9; 
 }
 
 .reg {
-   padding: 20px; /*Размер внутренних отступов контейнера*/
+   padding: 20px; 
 }
-
-
 
 .rating-area {
 	overflow: hidden;

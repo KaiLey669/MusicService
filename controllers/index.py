@@ -1,5 +1,4 @@
 from app import app
-import pandas as pd
 from flask import render_template, request, session
 from utils import create_connection
 from models.index_model import get_best_songs, \
@@ -21,7 +20,6 @@ from models.index_model import get_best_songs, \
                                 get_performer_name, \
                                 get_performer_songs, \
                                 get_performer_albums, \
-                                get_user_songs_rating, \
                                 get_all_songs, \
                                 get_rate_songs, \
                                 get_all_albums, \
@@ -70,10 +68,7 @@ def index():
     genres = get_genres_names(conn)
     genres_search = False
     performers_by_genre = ()
-    # user_role = None
 
-    # Пофиксить баг со входом после логина
-    # Пофиксить регистрацию
 
     if request.values.get('exit'):
         session['user'] = 0

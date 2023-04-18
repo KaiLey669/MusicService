@@ -82,8 +82,7 @@ def login():
 
         user_song_rating = create_user_rating_songs_dict(conn, session['user'])
         user_albums_rating = create_user_rating_albums_dict(conn, session['user'])
-
-        # return url_for('index', methods=['GET'])
+        
 
         return render_template('index.html',
                                 songs=best_songs,

@@ -6,7 +6,6 @@ from models.admin_panel_model import get_albums, add_song, \
                                      get_performers, \
                                      add_album, \
                                      get_performer_id, \
-                                     get_song_id, \
                                      delete_song, \
                                      add_performer, \
                                      get_album_by_perf, \
@@ -35,10 +34,6 @@ def admin_panel():
         add_song(conn, song_name, album_id)
 
     if request.values.get('delete_song'):
-        # performer_id = get_performer_id(conn, request.values.get('delete_performer'))[0][0]
-        # album_id = get_album_id(conn, request.values.get('delete_values'))[0][0]
-        # song_id = get_song_id(conn, request.values.get('delete_song'), album_id, performer_id)[0][0]
-
         delete_song(conn, request.values.get('delete_song'))
 
     if request.values.get('delete_album'):
@@ -59,10 +54,6 @@ def admin_panel():
         performer_name = request.values.get('added_perf_name')
 
         add_performer(conn, performer_name)
-
-    
-    # if request.values.get('delete_song'):
-    #     delete_song(conn, request.values.get('delete_song'))
 
 
     html = render_template(
